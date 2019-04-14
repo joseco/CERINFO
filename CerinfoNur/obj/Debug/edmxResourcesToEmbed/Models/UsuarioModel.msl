@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cerinfoModelStoreContainer" CdmEntityContainer="cerinfoEntities">
+    <EntitySetMapping Name="tbl_administrativo">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_administrativo">
+        <MappingFragment StoreEntitySet="tbl_administrativo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_administrativo" ColumnName="id_administrativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_area">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_area">
+        <MappingFragment StoreEntitySet="tbl_area">
+          <ScalarProperty Name="id_area" ColumnName="id_area" />
+          <ScalarProperty Name="significado_area" ColumnName="significado_area" />
+          <ScalarProperty Name="abreviatura_area" ColumnName="abreviatura_area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_autor">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_autor">
+        <MappingFragment StoreEntitySet="tbl_autor">
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_bloqueo">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_bloqueo">
+        <MappingFragment StoreEntitySet="tbl_bloqueo">
+          <ScalarProperty Name="id_bloqueo" ColumnName="id_bloqueo" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="fecha_bloqueo" ColumnName="fecha_bloqueo" />
+          <ScalarProperty Name="detalle_bloqueo" ColumnName="detalle_bloqueo" />
+          <ScalarProperty Name="monto_bloqueo" ColumnName="monto_bloqueo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_estudiante">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_estudiante">
+        <MappingFragment StoreEntitySet="tbl_estudiante">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_genero">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_genero">
+        <MappingFragment StoreEntitySet="tbl_genero">
+          <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+          <ScalarProperty Name="nombre_genero" ColumnName="nombre_genero" />
+          <ScalarProperty Name="abreviatura_genero" ColumnName="abreviatura_genero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_idioma">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_idioma">
+        <MappingFragment StoreEntitySet="tbl_idioma">
+          <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+          <ScalarProperty Name="significado_idioma" ColumnName="significado_idioma" />
+          <ScalarProperty Name="abreviatura_idioma" ColumnName="abreviatura_idioma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_libro">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_libro">
+        <MappingFragment StoreEntitySet="tbl_libro">
+          <ScalarProperty Name="id_libro" ColumnName="id_libro" />
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+          <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+          <ScalarProperty Name="id_material" ColumnName="id_material" />
+          <ScalarProperty Name="id_sigtop" ColumnName="id_sigtop" />
+          <ScalarProperty Name="titulo_libro" ColumnName="titulo_libro" />
+          <ScalarProperty Name="tomo_libro" ColumnName="tomo_libro" />
+          <ScalarProperty Name="id_area" ColumnName="id_area" />
+          <ScalarProperty Name="edicion_libro" ColumnName="edicion_libro" />
+          <ScalarProperty Name="editorial_libro" ColumnName="editorial_libro" />
+          <ScalarProperty Name="ano_libro" ColumnName="ano_libro" />
+          <ScalarProperty Name="lugar_publicacion_libro" ColumnName="lugar_publicacion_libro" />
+          <ScalarProperty Name="ano_publicacion_libro" ColumnName="ano_publicacion_libro" />
+          <ScalarProperty Name="id_targeta" ColumnName="id_targeta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_material">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_material">
+        <MappingFragment StoreEntitySet="tbl_material">
+          <ScalarProperty Name="id_material" ColumnName="id_material" />
+          <ScalarProperty Name="significado_material" ColumnName="significado_material" />
+          <ScalarProperty Name="abreviatura_material" ColumnName="abreviatura_material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_multa">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_multa">
+        <MappingFragment StoreEntitySet="tbl_multa">
+          <ScalarProperty Name="id_multa" ColumnName="id_multa" />
+          <ScalarProperty Name="estado_multa" ColumnName="estado_multa" />
+          <ScalarProperty Name="detalle_multa" ColumnName="detalle_multa" />
+          <ScalarProperty Name="monto_multa" ColumnName="monto_multa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_prestamo">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_prestamo">
+        <MappingFragment StoreEntitySet="tbl_prestamo">
+          <ScalarProperty Name="id_prestamo" ColumnName="id_prestamo" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="id_multa" ColumnName="id_multa" />
+          <ScalarProperty Name="id_libro" ColumnName="id_libro" />
+          <ScalarProperty Name="fecha_devolucion" ColumnName="fecha_devolucion" />
+          <ScalarProperty Name="fecha_prestamo" ColumnName="fecha_prestamo" />
+          <ScalarProperty Name="dias_prestado" ColumnName="dias_prestado" />
+          <ScalarProperty Name="id_administrativo" ColumnName="id_administrativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_sigtop">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_sigtop">
+        <MappingFragment StoreEntitySet="tbl_sigtop">
+          <ScalarProperty Name="id_sigtop" ColumnName="id_sigtop" />
+          <ScalarProperty Name="localidad_sigtop" ColumnName="localidad_sigtop" />
+          <ScalarProperty Name="dewey_sigtop" ColumnName="dewey_sigtop" />
+          <ScalarProperty Name="cuter_sigtop" ColumnName="cuter_sigtop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tarjeta">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_tarjeta">
+        <MappingFragment StoreEntitySet="tbl_tarjeta">
+          <ScalarProperty Name="id_tarjeta" ColumnName="id_tarjeta" />
+          <ScalarProperty Name="color_tarjeta" ColumnName="color_tarjeta" />
+          <ScalarProperty Name="dia_prestado_tarjeta" ColumnName="dia_prestado_tarjeta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_usuario">
+      <EntityTypeMapping TypeName="cerinfoModel.tbl_usuario">
+        <MappingFragment StoreEntitySet="tbl_usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="paterno_usuario" ColumnName="paterno_usuario" />
+          <ScalarProperty Name="materno_usuario" ColumnName="materno_usuario" />
+          <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="insertarusuario" FunctionName="cerinfoModel.Store.insertarusuario" />
+  </EntityContainerMapping>
+</Mapping>

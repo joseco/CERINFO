@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cerinfoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_administrativo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_administrativo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_area">
+    <Key>
+      <PropertyRef Name="id_area" />
+    </Key>
+    <Property Name="id_area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="significado_area" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="abreviatura_area" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_autor">
+    <Key>
+      <PropertyRef Name="id_autor" />
+    </Key>
+    <Property Name="id_autor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_autor" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_bloqueo">
+    <Key>
+      <PropertyRef Name="id_bloqueo" />
+    </Key>
+    <Property Name="id_bloqueo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_estudiante" Type="int" Nullable="false" />
+    <Property Name="fecha_bloqueo" Type="date" Nullable="false" />
+    <Property Name="detalle_bloqueo" Type="varchar" MaxLength="100" />
+    <Property Name="monto_bloqueo" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_estudiante">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_estudiante" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_genero">
+    <Key>
+      <PropertyRef Name="id_genero" />
+    </Key>
+    <Property Name="id_genero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_genero" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="abreviatura_genero" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_idioma">
+    <Key>
+      <PropertyRef Name="id_idioma" />
+    </Key>
+    <Property Name="id_idioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="significado_idioma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="abreviatura_idioma" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_libro">
+    <Key>
+      <PropertyRef Name="id_libro" />
+    </Key>
+    <Property Name="id_libro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_autor" Type="int" Nullable="false" />
+    <Property Name="id_genero" Type="int" Nullable="false" />
+    <Property Name="id_idioma" Type="int" Nullable="false" />
+    <Property Name="id_material" Type="int" Nullable="false" />
+    <Property Name="id_sigtop" Type="int" Nullable="false" />
+    <Property Name="titulo_libro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tomo_libro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_area" Type="int" Nullable="false" />
+    <Property Name="edicion_libro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="editorial_libro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ano_libro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="lugar_publicacion_libro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ano_publicacion_libro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_targeta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_material">
+    <Key>
+      <PropertyRef Name="id_material" />
+    </Key>
+    <Property Name="id_material" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="significado_material" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="abreviatura_material" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_multa">
+    <Key>
+      <PropertyRef Name="id_multa" />
+    </Key>
+    <Property Name="id_multa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estado_multa" Type="varchar" MaxLength="10" />
+    <Property Name="detalle_multa" Type="text" Nullable="false" />
+    <Property Name="monto_multa" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_prestamo">
+    <Key>
+      <PropertyRef Name="id_prestamo" />
+    </Key>
+    <Property Name="id_prestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_estudiante" Type="int" Nullable="false" />
+    <Property Name="id_multa" Type="int" Nullable="false" />
+    <Property Name="id_libro" Type="int" Nullable="false" />
+    <Property Name="fecha_devolucion" Type="date" Nullable="false" />
+    <Property Name="fecha_prestamo" Type="date" Nullable="false" />
+    <Property Name="dias_prestado" Type="int" Nullable="false" />
+    <Property Name="id_administrativo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_sigtop">
+    <Key>
+      <PropertyRef Name="id_sigtop" />
+    </Key>
+    <Property Name="id_sigtop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="localidad_sigtop" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="dewey_sigtop" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="cuter_sigtop" Type="varchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tarjeta">
+    <Key>
+      <PropertyRef Name="id_tarjeta" />
+    </Key>
+    <Property Name="id_tarjeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="color_tarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dia_prestado_tarjeta" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contrasena" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="paterno_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="materno_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipo_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__tbl_admin__id_ad__5165187F">
+    <End Role="tbl_usuario" Type="Self.tbl_usuario" Multiplicity="1" />
+    <End Role="tbl_administrativo" Type="Self.tbl_administrativo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tbl_administrativo">
+        <PropertyRef Name="id_administrativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_bloqu__id_es__52593CB8">
+    <End Role="tbl_estudiante" Type="Self.tbl_estudiante" Multiplicity="1" />
+    <End Role="tbl_bloqueo" Type="Self.tbl_bloqueo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_estudiante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_bloqueo">
+        <PropertyRef Name="id_estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_estud__id_es__5070F446">
+    <End Role="tbl_usuario" Type="Self.tbl_usuario" Multiplicity="1" />
+    <End Role="tbl_estudiante" Type="Self.tbl_estudiante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tbl_estudiante">
+        <PropertyRef Name="id_estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_libro__id_ar__59FA5E80">
+    <End Role="tbl_area" Type="Self.tbl_area" Multiplicity="1" />
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_area">
+        <PropertyRef Name="id_area" />
+      </Principal>
+      <Dependent Role="tbl_libro">
+        <PropertyRef Name="id_area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_libro__id_au__571DF1D5">
+    <End Role="tbl_autor" Type="Self.tbl_autor" Multiplicity="1" />
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_autor">
+        <PropertyRef Name="id_autor" />
+      </Principal>
+      <Dependent Role="tbl_libro">
+        <PropertyRef Name="id_autor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_libro__id_ge__5812160E">
+    <End Role="tbl_genero" Type="Self.tbl_genero" Multiplicity="1" />
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_genero">
+        <PropertyRef Name="id_genero" />
+      </Principal>
+      <Dependent Role="tbl_libro">
+        <PropertyRef Name="id_genero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_libro__id_id__59063A47">
+    <End Role="tbl_idioma" Type="Self.tbl_idioma" Multiplicity="1" />
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_idioma">
+        <PropertyRef Name="id_idioma" />
+      </Principal>
+      <Dependent Role="tbl_libro">
+        <PropertyRef Name="id_idioma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_libro__id_ma__5AEE82B9">
+    <End Role="tbl_material" Type="Self.tbl_material" Multiplicity="1" />
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_material">
+        <PropertyRef Name="id_material" />
+      </Principal>
+      <Dependent Role="tbl_libro">
+        <PropertyRef Name="id_material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_libro__id_si__5BE2A6F2">
+    <End Role="tbl_sigtop" Type="Self.tbl_sigtop" Multiplicity="1" />
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_sigtop">
+        <PropertyRef Name="id_sigtop" />
+      </Principal>
+      <Dependent Role="tbl_libro">
+        <PropertyRef Name="id_sigtop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_libro__id_ta__5CD6CB2B">
+    <End Role="tbl_tarjeta" Type="Self.tbl_tarjeta" Multiplicity="1" />
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_tarjeta">
+        <PropertyRef Name="id_tarjeta" />
+      </Principal>
+      <Dependent Role="tbl_libro">
+        <PropertyRef Name="id_targeta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_prest__id_ad__5629CD9C">
+    <End Role="tbl_administrativo" Type="Self.tbl_administrativo" Multiplicity="1" />
+    <End Role="tbl_prestamo" Type="Self.tbl_prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_administrativo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_prestamo">
+        <PropertyRef Name="id_administrativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_prest__id_es__534D60F1">
+    <End Role="tbl_estudiante" Type="Self.tbl_estudiante" Multiplicity="1" />
+    <End Role="tbl_prestamo" Type="Self.tbl_prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_estudiante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_prestamo">
+        <PropertyRef Name="id_estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_prest__id_li__5535A963">
+    <End Role="tbl_libro" Type="Self.tbl_libro" Multiplicity="1" />
+    <End Role="tbl_prestamo" Type="Self.tbl_prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_libro">
+        <PropertyRef Name="id_libro" />
+      </Principal>
+      <Dependent Role="tbl_prestamo">
+        <PropertyRef Name="id_libro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_prest__id_mu__5441852A">
+    <End Role="tbl_multa" Type="Self.tbl_multa" Multiplicity="1" />
+    <End Role="tbl_prestamo" Type="Self.tbl_prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_multa">
+        <PropertyRef Name="id_multa" />
+      </Principal>
+      <Dependent Role="tbl_prestamo">
+        <PropertyRef Name="id_multa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="insertarusuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pid_usuario" Type="varchar" Mode="In" />
+    <Parameter Name="pcontrasena" Type="varchar" Mode="In" />
+    <Parameter Name="pnombre_usuario" Type="varchar" Mode="In" />
+    <Parameter Name="ppaterno_usuario" Type="varchar" Mode="In" />
+    <Parameter Name="pmaterno_usuario" Type="varchar" Mode="In" />
+    <Parameter Name="ptipo_usuario" Type="varchar" Mode="In" />
+    <Parameter Name="pcorreo" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="cerinfoModelStoreContainer">
+    <EntitySet Name="tbl_administrativo" EntityType="Self.tbl_administrativo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_area" EntityType="Self.tbl_area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_autor" EntityType="Self.tbl_autor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_bloqueo" EntityType="Self.tbl_bloqueo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_estudiante" EntityType="Self.tbl_estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_genero" EntityType="Self.tbl_genero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_idioma" EntityType="Self.tbl_idioma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_libro" EntityType="Self.tbl_libro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_material" EntityType="Self.tbl_material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_multa" EntityType="Self.tbl_multa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_prestamo" EntityType="Self.tbl_prestamo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sigtop" EntityType="Self.tbl_sigtop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tarjeta" EntityType="Self.tbl_tarjeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_usuario" EntityType="Self.tbl_usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_admin__id_ad__5165187F" Association="Self.FK__tbl_admin__id_ad__5165187F">
+      <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+      <End Role="tbl_administrativo" EntitySet="tbl_administrativo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_bloqu__id_es__52593CB8" Association="Self.FK__tbl_bloqu__id_es__52593CB8">
+      <End Role="tbl_estudiante" EntitySet="tbl_estudiante" />
+      <End Role="tbl_bloqueo" EntitySet="tbl_bloqueo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_estud__id_es__5070F446" Association="Self.FK__tbl_estud__id_es__5070F446">
+      <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+      <End Role="tbl_estudiante" EntitySet="tbl_estudiante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_libro__id_ar__59FA5E80" Association="Self.FK__tbl_libro__id_ar__59FA5E80">
+      <End Role="tbl_area" EntitySet="tbl_area" />
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_libro__id_au__571DF1D5" Association="Self.FK__tbl_libro__id_au__571DF1D5">
+      <End Role="tbl_autor" EntitySet="tbl_autor" />
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_libro__id_ge__5812160E" Association="Self.FK__tbl_libro__id_ge__5812160E">
+      <End Role="tbl_genero" EntitySet="tbl_genero" />
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_libro__id_id__59063A47" Association="Self.FK__tbl_libro__id_id__59063A47">
+      <End Role="tbl_idioma" EntitySet="tbl_idioma" />
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_libro__id_ma__5AEE82B9" Association="Self.FK__tbl_libro__id_ma__5AEE82B9">
+      <End Role="tbl_material" EntitySet="tbl_material" />
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_libro__id_si__5BE2A6F2" Association="Self.FK__tbl_libro__id_si__5BE2A6F2">
+      <End Role="tbl_sigtop" EntitySet="tbl_sigtop" />
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_libro__id_ta__5CD6CB2B" Association="Self.FK__tbl_libro__id_ta__5CD6CB2B">
+      <End Role="tbl_tarjeta" EntitySet="tbl_tarjeta" />
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_prest__id_ad__5629CD9C" Association="Self.FK__tbl_prest__id_ad__5629CD9C">
+      <End Role="tbl_administrativo" EntitySet="tbl_administrativo" />
+      <End Role="tbl_prestamo" EntitySet="tbl_prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_prest__id_es__534D60F1" Association="Self.FK__tbl_prest__id_es__534D60F1">
+      <End Role="tbl_estudiante" EntitySet="tbl_estudiante" />
+      <End Role="tbl_prestamo" EntitySet="tbl_prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_prest__id_li__5535A963" Association="Self.FK__tbl_prest__id_li__5535A963">
+      <End Role="tbl_libro" EntitySet="tbl_libro" />
+      <End Role="tbl_prestamo" EntitySet="tbl_prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_prest__id_mu__5441852A" Association="Self.FK__tbl_prest__id_mu__5441852A">
+      <End Role="tbl_multa" EntitySet="tbl_multa" />
+      <End Role="tbl_prestamo" EntitySet="tbl_prestamo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fc2285377d14fc7b3f8f33de8855cfd" Name="Diagram1">
+        <EntityTypeShape EntityType="cerinfoModel.tbl_administrativo" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_area" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_autor" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_bloqueo" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_estudiante" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_genero" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_idioma" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_libro" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_material" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_multa" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_prestamo" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_sigtop" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_tarjeta" Width="1.5" PointX="0.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cerinfoModel.tbl_usuario" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_admin__id_ad__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_prest__id_ad__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_libro__id_ar__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_libro__id_au__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_bloqu__id_es__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_estud__id_es__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_prest__id_es__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_libro__id_ge__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_libro__id_id__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_libro__id_ma__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_libro__id_si__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_libro__id_ta__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_prest__id_li__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="cerinfoModel.FK__tbl_prest__id_mu__5441852A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
