@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using CerinfoNur.Models;
 using System.Data.SqlClient;
+using SimpleCrypto;
 
 namespace CerinfoNur.Controllers
 {
@@ -20,25 +21,30 @@ namespace CerinfoNur.Controllers
             return View();
         }
 
-        
-        //[HttpPost]
 
-        // POST: Login
+
+        [HttpPost]
         public ActionResult Auth(Login L)
         {
             con.Open();
             com.Connection = con;
-            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='"+L.username+"' AND password='"+L.password+"'";
+            ICryptoService cryptoService = new PBKDF2();
+            //Generar algoritmo de encryptacion
+            String salt = cryptoService.GenerateSalt();
+            String contrasenaencryptada = cryptoService.Compute(L.password);
+            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='"+L.username+"' AND contrasena='"+L.password+"'";
+            // Con password encryptado
+            //com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + L.username + "' AND contrasena='" + contrasenaencryptada + "'";
             dr = com.ExecuteReader();
             if (dr.Read())
             {
                 con.Close();
-                return View();
+                return View("~/Views/Home/Index.cshtml");
             }
             else
             {
                 con.Close();
-                return View();
+                return View("Error");
             }
             
             
