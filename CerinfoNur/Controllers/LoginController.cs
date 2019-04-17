@@ -12,7 +12,7 @@ namespace CerinfoNur.Controllers
     public class LoginController : Controller
     {
 
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-RM8UAH3;Initial Catalog=cerinfo;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=ANGEL\\MSSQLSERVER2019;Initial Catalog=cerinfo;Integrated Security=True");
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         // GET: Login
@@ -32,9 +32,9 @@ namespace CerinfoNur.Controllers
             //Generar algoritmo de encryptacion
             String salt = cryptoService.GenerateSalt();
             String contrasenaencryptada = cryptoService.Compute(L.password);
-            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='"+L.username+"' AND contrasena='"+L.password+"'";
+            //com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='"+L.username+"' AND contrasena='"+L.password+"'";
             // Con password encryptado
-            //com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + L.username + "' AND contrasena='" + contrasenaencryptada + "'";
+            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + L.username + "' AND contrasena='" + contrasenaencryptada + "'";
             dr = com.ExecuteReader();
             if (dr.Read())
             {
