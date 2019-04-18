@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using CerinfoNur.Models;
 using System.Data.SqlClient;
 using SimpleCrypto;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace CerinfoNur.Controllers
 {
@@ -28,13 +30,25 @@ namespace CerinfoNur.Controllers
         {
             con.Open();
             com.Connection = con;
-            ICryptoService cryptoService = new PBKDF2();
+           
+
+            string usuario = L.username;
+            string contrasena = L.password;
+            cerinfoEntities DB = new cerinfoEntities();
+
+            // var persona = DB.tbl_usuario.Where(x => x.nombre_usuario == usuario).FirstOrDefault();
             //Generar algoritmo de encryptacion
-            String salt = cryptoService.GenerateSalt();
-            String contrasenaencryptada = cryptoService.Compute(L.password);
+            // String salt = cryptoService.GenerateSalt();
+            //String contrasenaencryptada = cryptoService.Compute(L.password);
             //com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='"+L.username+"' AND contrasena='"+L.password+"'";
             // Con password encryptado
-            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + L.username + "' AND contrasena='" + contrasenaencryptada + "'";
+            //com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + L.username + "' AND contrasena='" + contrasenaencryptada + "'";
+            //ICryptoService cryptoService = new PBKDF2();
+            //string contrasenaEncryptada = cryptoService.Compute(contrasena,persona.salt);
+           
+            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + usuario + "' AND contrasena='" + contrasena + "'";
+            
+
             dr = com.ExecuteReader();
             if (dr.Read())
             {
@@ -46,10 +60,10 @@ namespace CerinfoNur.Controllers
                 con.Close();
                 return View("Error");
             }
-            
-            
+
+
         }
-        
-        
+      
+
     }
 }

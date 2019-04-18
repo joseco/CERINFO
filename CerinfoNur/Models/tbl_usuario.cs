@@ -35,11 +35,11 @@ namespace CerinfoNur.Models
         public string materno_usuario { get; set; }
         [Required]
         public string tipo_usuario { get; set; }
+
         [Required]
-       
         [EmailAddress(ErrorMessage ="Email Invalido")]
         public string correo { get; set; }
-    
+       
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_administrativo> tbl_administrativo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

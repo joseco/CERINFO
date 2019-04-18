@@ -10,6 +10,8 @@ using CerinfoNur.Models;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using SimpleCrypto;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace CerinfoNur.Controllers
 {
@@ -47,36 +49,22 @@ namespace CerinfoNur.Controllers
         {
             return View();
         }
-
-        // POST: tbl_usuario/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        // [HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "id_usuario,contrasena,nombre_usuario,paterno_usuario,materno_usuario,tipo_usuario,correo")] tbl_usuario tbl_usuario)
-        //{
-        //  if (ModelState.IsValid)
-        //{
-        //  db.tbl_usuario.Add(tbl_usuario);
-        //db.SaveChanges();
-        //return RedirectToAction("Index");
-        //        }
-
-        //    return View(tbl_usuario);
-        //  }
-
+  
         [HttpPost]
         public ActionResult create(tbl_usuario usuario)
         {
+            //LLAMO AL METODO Y HASHEO LA CONTRASEÑA
+            string co = GetSHA1(usuario.contrasena);
+           
             ICryptoService cryptoService = new PBKDF2();
             //Generar algoritmo de encryptacion
-            String salt = cryptoService.GenerateSalt();
-            String contrasenaencryptada = cryptoService.Compute(usuario.contrasena);
+            string salt = cryptoService.GenerateSalt();
+            string contrasenaencryptada = cryptoService.Compute(usuario.contrasena);
             conexion.Open();
             SqlCommand query = new SqlCommand("insertarusuario", conexion);
             query.CommandType = CommandType.StoredProcedure;
             query.Parameters.Add("@pid_usuario", SqlDbType.VarChar).Value = usuario.id_usuario;
-            query.Parameters.Add("@pcontrasena", SqlDbType.VarChar).Value = contrasenaencryptada;
+            query.Parameters.Add("@pcontrasena", SqlDbType.VarChar).Value = co;
             query.Parameters.Add("@pnombre_usuario", SqlDbType.VarChar).Value = usuario.nombre_usuario;
             query.Parameters.Add("@ppaterno_usuario", SqlDbType.VarChar).Value = usuario.paterno_usuario;
             query.Parameters.Add("@pmaterno_usuario", SqlDbType.VarChar).Value = usuario.materno_usuario;
@@ -152,7 +140,18 @@ namespace CerinfoNur.Controllers
             }
             base.Dispose(disposing);
         }
-        
+        //METODO DE HASH ENCRYPTACION DE CONTRASEÑA
+        public static string GetSHA1(string str)
+        {
+            SHA1 sha1 = SHA1Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha1.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
         }
+
+    }
     }
 
