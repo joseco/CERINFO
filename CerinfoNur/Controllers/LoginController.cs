@@ -14,7 +14,7 @@ namespace CerinfoNur.Controllers
     public class LoginController : Controller
     {
 
-        SqlConnection con = new SqlConnection("Data Source=ANGEL\\MSSQLSERVER2019;Initial Catalog=cerinfo;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-RM8UAH3;Initial Catalog=cerinfo;Integrated Security=True");
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         // GET: Login
@@ -45,9 +45,9 @@ namespace CerinfoNur.Controllers
             //com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + L.username + "' AND contrasena='" + contrasenaencryptada + "'";
             //ICryptoService cryptoService = new PBKDF2();
             //string contrasenaEncryptada = cryptoService.Compute(contrasena,persona.salt);
-           
-            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + usuario + "' AND contrasena='" + contrasena + "'";
-            
+            string pcontrasena = GetSHA1(contrasena);
+            com.CommandText = "SELECT * FROM tbl_usuario WHERE nombre_usuario='" + usuario + "' AND contrasena='" + pcontrasena + "'";
+
 
             dr = com.ExecuteReader();
             if (dr.Read())
@@ -63,7 +63,17 @@ namespace CerinfoNur.Controllers
 
 
         }
-      
+        public static string GetSHA1(string str)
+        {
+            SHA1 sha1 = SHA1Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha1.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
+
 
     }
 }
