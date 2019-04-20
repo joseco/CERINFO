@@ -1,0 +1,28 @@
+﻿@model CerinfoNur.Models.tbl_usuario
+
+@{
+    ViewBag.Title = "Create";
+}
+<br />
+<h3>Pegue aqui el codigo que se le fue enviado a su correo</h3>
+<br /><br />
+<form action="Step3_info" method="post">
+    <div class="form-group">
+
+        <div class="col-md-5">
+            <label>Codigo</label><br />
+            <input type="text" name="sha1" value="" class="form-control" /><br /><br />
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Validar" name="Validar" class="btn btn-default" />
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

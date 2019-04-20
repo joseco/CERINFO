@@ -1,0 +1,34 @@
+﻿@model CerinfoNur.Models.tbl_usuario
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h3>Se a logrado recuperar su informacion</h3>
+<br /><br />
+<form action="CambiarContraseña" method="post">
+    <div class="form-group">
+
+        <div class="col-md-5">
+            <label>Su id es: @Model.id_usuario</label><br /><br />
+
+
+        </div>
+
+        <div class="col-md-5">
+            <label>Su contraseña es @Model.contrasena</label><br />
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Volver al Login" name="Validar" class="btn btn-default" />
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
