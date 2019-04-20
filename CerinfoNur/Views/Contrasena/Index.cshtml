@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (ViewBag.showSuccessAlert)
+    {
+        <script>
+            alert('Su contraseña fue cambiado correctamente');
+        </script>
+    }
+}
+
+<section class="section-margin--large">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <form action="/Contrasena/Auth" class="form-contact contact_form" method="post" id="contactForm" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <l2>CAMBIO DE CONTRASEÑA</l2>
+                            <div class="form-group">
+                                <input class="form-control" name="username" id="name" type="text" placeholder="Nombre de usuario">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="antiguaContrasena" id="passOld" type="password" placeholder="Antigua Contrasena">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="nuevaContrasena" id="passNew" type="password" placeholder="Nueva Contrasena">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="confirmarContrasena" id="passConfirm" type="password" placeholder="Confirmar Contrasena">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group text-center text-md-left mt-3">
+                        <button type="submit" class="button button-contactForm">cambiar</button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ contact section end ================= -->

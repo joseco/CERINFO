@@ -14,7 +14,7 @@ namespace CerinfoNur.Controllers
     public class LoginController : Controller
     {
 
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-RM8UAH3;Initial Catalog=cerinfo;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-DPN7855;Initial Catalog=cerinfo;Integrated Security=True");
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         // GET: Login

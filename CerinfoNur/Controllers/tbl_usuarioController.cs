@@ -18,7 +18,7 @@ namespace CerinfoNur.Controllers
     public class tbl_usuarioController : Controller
     {
         private CerinfoNurContext db = new CerinfoNurContext();
-        SqlConnection conexion = new SqlConnection("Data Source=DESKTOP-RM8UAH3;Initial Catalog=cerinfo;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=DESKTOP-DPN7855;Initial Catalog=cerinfo;Integrated Security=True");
 
         // GET: tbl_usuario
         public ActionResult Index()

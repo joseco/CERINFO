@@ -138,12 +138,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ContrasenaController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\tbl_usuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CerinfoNurContext.cs" />
+    <Compile Include="Models\Contrasena.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\tbl_administrativo.cs">
       <DependentUpon>UsuarioModel.tt</DependentUpon>
@@ -737,6 +739,9 @@
     <Content Include="Views\Shared\_ViewStart.cshtml" />
     <Content Include="Views\Login\Auth.cshtml" />
     <Content Include="Views\Login\Error.cshtml" />
+    <Content Include="Views\Contrasena\Auth.cshtml" />
+    <Content Include="Views\Contrasena\Error.cshtml" />
+    <Content Include="Views\Contrasena\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
